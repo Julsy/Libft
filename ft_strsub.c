@@ -6,7 +6,7 @@
 /*   By: iiliuk <iiliuk@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 11:16:31 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/09/27 11:16:31 by iiliuk           ###   ########.fr       */
+/*   Updated: 2016/12/01 15:26:26 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char			*sub;
+	char			*str;
 	unsigned int	i;
 
-	i = 0;
-	sub = ft_strnew(len);
-	if (sub == NULL)
+	if ((str = ft_strnew(len)) == NULL)
 		return (NULL);
-	while (s && s[start] && i < len)
-	{
-		sub[i] = s[start];
-		i++;
-		start++;
-	}
-	sub[i] = '\0';
-	return (sub);
+	i = 0;
+	while (len--)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }

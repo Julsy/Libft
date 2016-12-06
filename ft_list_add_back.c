@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_list_add_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iiliuk <iiliuk@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/26 20:21:39 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/07/26 21:00:12 by iiliuk           ###   ########.fr       */
+/*   Created: 2016/12/01 13:42:34 by iiliuk            #+#    #+#             */
+/*   Updated: 2016/12/01 13:44:39 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_list_push_back(t_list **begin_list, void *data)
+void	ft_list_add_back(t_list **alst, t_list *new)
 {
-	t_list	*list;
+	t_list	*tmp;
 
-	list = *begin_list;
-	if (!list)
-		*begin_list = ft_lstnew(data, sizeof(data));
-	while (list->next)
-		list = list->next;
-	list->next = ft_lstnew(data, sizeof(data));
+	tmp = *alst;
+	if (*alst == NULL)
+		*alst = new;
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: iiliuk <iiliuk@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:42:17 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/09/27 12:42:17 by iiliuk           ###   ########.fr       */
+/*   Updated: 2016/12/01 15:39:25 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *str;
-	char *tmp;
+	char	*str;
+	size_t	len1;
+	size_t	len2;
 
-	if (s1 && s2)
-	{
-		str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
-		if (str != NULL)
-		{
-			tmp = str;
-			while (*s1 != '\0')
-				*tmp++ = *s1++;
-			while (*s2 != '\0')
-				*tmp++ = *s2++;
-			*tmp = '\0';
-			return (str);
-		}
-	}
-	return (NULL);
+	if (!s1 && !s2)
+		return (NULL);
+	if (s1 == NULL)
+		len1 = 0;
+	else
+		len1 = ft_strlen(s1);
+	if (s2 == NULL)
+		len2 = 0;
+	else
+		len2 = ft_strlen(s2);
+	if ((str = ft_strnew(len1 + ft_strlen(s2) + 1)) == NULL)
+		return (NULL);
+	(len1 == 0) ? str : ft_strcpy(str, s1);
+	(len2 == 0) ? str : ft_strcpy((str + len1), s2);
+	return (str);
 }

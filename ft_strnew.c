@@ -6,7 +6,7 @@
 /*   By: iiliuk <iiliuk@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 12:59:25 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/09/26 12:59:25 by iiliuk           ###   ########.fr       */
+/*   Updated: 2016/12/01 15:46:40 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *str;
+	char			*str;
+	unsigned int	i;
 
-	str = ft_memalloc(size + 1);
-	if (str == NULL)
+	i = 0;
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	ft_memset(str, '\0', size);
-	return ((char *)str);
+	while (i < size)
+		str[i++] = '\0';
+	str[i] = '\0';
+	return (str);
 }
