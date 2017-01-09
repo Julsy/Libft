@@ -6,7 +6,7 @@
 /*   By: iiliuk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 10:52:13 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/12/01 13:46:08 by iiliuk           ###   ########.fr       */
+/*   Updated: 2016/12/14 18:13:01 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ void				ft_list_reverse(t_list **begin_list);
 
 void				*ft_realloc(void *ptr, size_t size);
 size_t				ft_abs(int n);
+char				*ft_itoa_base(int value, int base);
 
 #endif
