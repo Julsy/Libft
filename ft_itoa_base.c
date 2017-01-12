@@ -10,17 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int			ft_abs(int n)
-{
-	return (n < 0 ? -n : n);
-}
-
-int			cnvt_nbr(int value, int base, int *store)
+int			cnvt_nbr(long long value, int base, int *store)
 {
 	int	i;
-	int	val;
+	long long	val;
 
 	i = 0;
 	val = value;
@@ -38,7 +33,7 @@ int			cnvt_nbr(int value, int base, int *store)
 	return (i);
 }
 
-char		*ft_itoa_base(int value, int base)
+char		*ft_itoa_base(long long value, int base)
 {
 	static char	base_digits[16] = {'0', '1', '2', '3', '4', '5', '6', '7',
 									'8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

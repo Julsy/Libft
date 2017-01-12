@@ -6,15 +6,15 @@
 /*   By: iiliuk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 13:23:46 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/09/21 13:24:01 by iiliuk           ###   ########.fr       */
+/*   Updated: 2017/01/10 12:50:27 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putnbr(long long n)
 {
-	long int tmp;
+	long long tmp;
 
 	tmp = n;
 	if (tmp < 0)
