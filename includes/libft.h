@@ -6,16 +6,18 @@
 /*   By: iiliuk <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 10:52:13 by iiliuk            #+#    #+#             */
-/*   Updated: 2017/01/10 12:51:26 by iiliuk           ###   ########.fr       */
+/*   Updated: 2017/03/01 14:28:15 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
+# define MAX(A, B) (((A) > (B)) ? (A) : (B))
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stddef.h>
+# include <stdint.h>
 
 # define BUFF_SIZE 42
 
@@ -52,7 +54,6 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
-
 
 /*
 ** Put
@@ -117,20 +118,18 @@ t_list				*ft_list_last(t_list *begin_list);
 t_list				*ft_list_push_params(int ac, char **av);
 t_list				*ft_list_nth(t_list *begin_list, unsigned int nbr);
 void				ft_list_reverse(t_list **begin_list);
+void				ft_lstdelcont(t_list **alst, void *cont);
+void				ft_lst_free_cont(void *cont, size_t cont_size);
+void				ft_print_list(t_list *list);
 
 /*
 ** Conversions
 */
 
-size_t				ft_abs(int n);
-char				*ft_itoa(int n);
+ptrdiff_t			ft_abs(ptrdiff_t n);
+char				*ft_itoa(ptrdiff_t n);
 int					ft_atoi(const char *str);
-char				*ft_itoa_base(long long value, int base);
-
-/*
-** Other
-*/
-
-int					ft_get_next_line(const int fd, char **line);
+char				*ft_itoa_base(ptrdiff_t value, int base);
+char				*ft_itoa_unbase(unsigned long long nb, unsigned int base);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char		ft_sign(int n)
+static char		ft_sign(ptrdiff_t n)
 {
 	if (n > 0)
 		return ('+');
@@ -21,12 +21,12 @@ static char		ft_sign(int n)
 	return ('0');
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(ptrdiff_t n)
 {
-	char			*str;
-	int				i;
-	unsigned int	tmp;
-	unsigned int	nbr;
+	char		*str;
+	int			i;
+	ptrdiff_t	tmp;
+	ptrdiff_t	nbr;
 
 	tmp = ft_sign(n) == '-' ? -n : n;
 	nbr = tmp;
@@ -43,7 +43,7 @@ char			*ft_itoa(int n)
 	while (nbr)
 	{
 		i--;
-		str[i] = nbr % 10 + '0';
+		str[i] = ft_abs(nbr % 10) + '0';
 		nbr = nbr / 10;
 	}
 	return (str);

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_add_back.c                                 :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iiliuk <iiliuk@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iiliuk <iiliuk@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 13:42:34 by iiliuk            #+#    #+#             */
-/*   Updated: 2016/12/01 13:44:39 by iiliuk           ###   ########.fr       */
+/*   Created: 2017/01/19 15:18:28 by iiliuk            #+#    #+#             */
+/*   Updated: 2017/01/19 15:18:28 by iiliuk           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_list_add_back(t_list **alst, t_list *new)
+char	*ft_strndup(const char *s, size_t n)
 {
-	t_list	*tmp;
+	char			*res;
+	unsigned int	i;
 
-	tmp = *alst;
-	if (*alst == NULL)
-		*alst = new;
-	else
+	i = 0;
+	res = (char *)malloc(sizeof(char) * n);
+	if (!res)
+		return (NULL);
+	while (i < n)
 	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
+		res[i] = s[i];
+		i++;
 	}
+	res[i] = '\0';
+	return (res);
 }
